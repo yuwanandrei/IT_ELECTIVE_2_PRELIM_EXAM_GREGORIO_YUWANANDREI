@@ -1,0 +1,55 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstats
+*.userprefs
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.log
+*.tlh
+*.tmp
+*.tlb
+*.ilk
+*.metaproj
+*.meta
+*.nupkg
+*.cache
+*.pdb
+*.lib
+*.exp
+*.ipdb
+*.iobj
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+*.vsix
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.sln.DotSettings.user
+
+# Common
+packages/
+*.zip
+*.tar.gz
+*.7z
+node_modules/
