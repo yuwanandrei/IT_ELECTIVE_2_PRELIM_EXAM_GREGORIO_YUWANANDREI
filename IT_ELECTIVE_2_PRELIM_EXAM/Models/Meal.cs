@@ -9,39 +9,64 @@ namespace IT_ELECTIVE_2_PRELIM_EXAM.Models;
 // Currently, the properties below are STUBS that return wrong values.
 // Fix them to properly wrap the private fields.
 
+
 public class Meal
 {
-    public string name;
-    public string category;
-    public string area;
-    public string instructions;
-    public string thumbnail;
-    public string tags;
+    private string _name;
+    private string _category;
+    private string _area;
+    private string _instructions;
+    private string _thumbnail;
+    private string _tags;
+    private int _cookingTime; // Added private backing field for Exercise 6 compatibility
 
-    // EXERCISE 1: Fix these stub properties to properly get/set from private fields
-    // After fixing, make the fields above PRIVATE
-    public string Name { get => ""; set { } }
-    public string Category { get => ""; set { } }
-    public string Area { get => ""; set { } }
-
-    public Meal()
+    public string Name
     {
-        name = "";
-        category = "";
-        area = "";
-        instructions = "";
-        thumbnail = "";
-        tags = "";
+        get => _name;
+        set => _name = value;
     }
 
+    public string Category
+    {
+        get => _category;
+        set => _category = value;
+    }
+
+    public string Area
+    {
+        get => _area;
+        set => _area = value;
+    }
+
+    // Public property for CookingTime so RecipeBook can access it
+    public int CookingTime
+    {
+        get => _cookingTime;
+        set => _cookingTime = value;
+    }
+
+    // Default Constructor
+    public Meal()
+    {
+        _name = "";
+        _category = "";
+        _area = "";
+        _instructions = "";
+        _thumbnail = "";
+        _tags = "";
+        _cookingTime = 0;
+    }
+
+    // Parameterized Constructor
     public Meal(string name, string category, string area)
     {
-        this.name = name;
-        this.category = category;
-        this.area = area;
-        this.instructions = "";
-        this.thumbnail = "";
-        this.tags = "";
+        _name = name;
+        _category = category;
+        _area = area;
+        _instructions = "";
+        _thumbnail = "";
+        _tags = "";
+        _cookingTime = 0;
     }
 
     public override string ToString()
@@ -49,3 +74,4 @@ public class Meal
         return $"Meal: {Name} | Category: {Category} | Area: {Area}";
     }
 }
+ 

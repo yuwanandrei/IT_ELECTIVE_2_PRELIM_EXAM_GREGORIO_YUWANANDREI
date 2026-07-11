@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using IT_ELECTIVE_2_PRELIM_EXAM.Models;
 
 namespace IT_ELECTIVE_2_PRELIM_EXAM.Services;
@@ -22,6 +25,7 @@ public class RecipeBook
     public int Capacity { get; set; }
     private List<Meal> meals;
 
+    // Master Constructor (2 parameters)
     public RecipeBook(string name, int capacity)
     {
         Name = name;
@@ -29,13 +33,13 @@ public class RecipeBook
         meals = new List<Meal>();
     }
 
-    // EXERCISE 5: Add constructor that accepts only (string name)
-    // and chains to the above with default capacity 10
-    // Currently this stub doesn't chain - fix it!
-    public RecipeBook(string name)
+   
+    // EXERCISE 5: Constructor Chaining
+    // Chains to the master constructor using ': this(...)' with a default capacity of 10
+    
+    public RecipeBook(string name) : this(name, 10)
     {
-        Name = name;
-        meals = new List<Meal>();
+        // Body stays empty because the master constructor handles initialization!
     }
 
     public void AddMeal(Meal meal)
@@ -46,24 +50,32 @@ public class RecipeBook
         }
     }
 
+    // Original Search (by name only)
     public List<Meal> Search(string term)
     {
         return meals.Where(m =>
             m.Name.Contains(term, StringComparison.OrdinalIgnoreCase)).ToList();
     }
 
-    // EXERCISE 6: Add overload Search(string term, string category)
-    // Currently this stub returns empty - fix it!
+
+    // EXERCISE 6: Overload 1 - Search by Name AND Category
+    // Filters items matching both criteria
+  
     public List<Meal> Search(string term, string category)
     {
-        return new List<Meal>();
+        return meals.Where(m =>
+            m.Name.Contains(term, StringComparison.OrdinalIgnoreCase) &&
+            m.Category.Equals(category, StringComparison.OrdinalIgnoreCase)
+        ).ToList();
     }
 
-    // EXERCISE 6: Add overload Search(int maxPrepTime)
-    // Currently this stub returns empty - fix it!
+
+    // EXERCISE 6: Overload 2 - Search by Max Prep Time
+    // Note: If 'PrepTimeMinutes' doesn't exist on 'Meal', check your Model's property name
+
     public List<Meal> Search(int maxPrepTime)
     {
-        return new List<Meal>();
+        return meals.Where(m => m.CookingTime <= maxPrepTime).ToList();
     }
 
     public int GetMealCount()
